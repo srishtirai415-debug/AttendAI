@@ -118,6 +118,34 @@ Example response:
 ]
 ```
 
+## Actual response
+```json
+    {
+  "msg": "Successfully done",
+  "data": [
+    {
+      "id": 1,
+      "name": "DBMS",
+      "classes_held": 40,
+      "classes_attended": 32,
+      "created_at": "2026-10-15T10:55:58.000Z"
+    },
+    {
+      "id": 2,
+      "name": "Java",
+      "classes_held": 30,
+      "classes_attended": 21,
+      "created_at": "2026-10-15T10:55:58.000Z"
+    },
+    {
+      "id": 3,
+      "name": "Data Structures",
+      "classes_held": 25,
+      "classes_attended": 20,
+      "created_at": "2026-10-15T10:55:58.000Z"
+    }
+```
+
 Notes:
 - The example timestamps are illustrative.
 - `attendance_percentage` and `attendance_status` are computed by the backend; they do not need to be stored in MySQL.
@@ -144,6 +172,22 @@ Example response:
   "created_at": "2026-10-15T10:05:00.000Z",
   "attendance_percentage": 70,
   "attendance_status": "low"
+}
+```
+
+## Actual response
+```json
+  {
+  "msg": "Successfully",
+  "data": {
+    "id": 2,
+    "name": "Java",
+    "classes_held": 30,
+    "classes_attended": 21,
+    "created_at": "2026-10-15T10:55:58.000Z",
+    "attendance_percentage": 70,
+    "attendance_status": "low"
+  }
 }
 ```
 
