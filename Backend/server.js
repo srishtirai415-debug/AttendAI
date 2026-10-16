@@ -1,21 +1,18 @@
 const express=require("express");
 const path=require("path");
 require("dotenv").config();
-const mysql=require("mysql2");
+const subjectRoute=require("./routes/subjectRoute");
+const dashboardRoute=require("./routes/dashboardRoute")
+const db=require("./config/dbConnection");
 
 const app=express();
+let PORT=process.env.PORT || 8080;
+app.use(express.json());
 
+// load all static files
 app.use(express.static(path.join(__dirname,"../frontend")));
 
-
-
-const db=mysql.createConnection({
-    host : process.env.DB_HOST,
-    user:process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    port:Number(process.env.DB_PORT)
-});
-
+// connecting to database
 db.connect((err)=>{
     if(err){
         console.error("Database connection failed;",err.message);
@@ -23,8 +20,12 @@ db.connect((err)=>{
     }
     console.log("MySQL connection successfully");
 });
+// subject routes
+app.use("/api/subject",subjectRoute);
 
-let PORT=process.env.PORT || 8080;
+// dashboard routes
+app.use("/api/dashboard",dashboardRoute);
+
 app.listen(PORT,()=>{
     console.log(`App listen at port ${PORT}`);
 })
