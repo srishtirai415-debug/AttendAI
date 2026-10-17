@@ -564,7 +564,21 @@ The backend team must:
 
 ---
 
-## 13. Team integration and testing
+## 13. Current Python AI integration
+
+The Python attendance assistant is exposed by the backend under `/api/ai`:
+
+| Method | Endpoint | Purpose |
+|---|---|---|
+| POST | `/api/ai/insights` | Load current subjects from MySQL and return prioritized recommendations |
+| POST | `/api/ai/calculator` | Calculate consecutive classes needed to reach a target |
+| POST | `/api/ai/what-if` | Project attendance after future attended or missed classes |
+
+The Node backend runs the Python standard-library program for each request. See [the AI module README](../AI/README.md) for examples and local setup. These are the implemented paths and differ from the earlier planned `/api/insights` and `/api/calculator` paths in this contract.
+
+---
+
+## 14. Team integration and testing
 
 Before integration, both teams should test the contract with the following cases:
 
