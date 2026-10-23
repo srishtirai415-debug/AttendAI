@@ -1,6 +1,6 @@
-Attendance Analyzer — Project Architecture
+# Attendance Analyzer — Project Architecture
 
-1. Project Overview
+## 1. Project Overview
 
 The Attendance Analyzer is a beginner-friendly web application that helps an individual student analyze attendance across different subjects.
 
@@ -8,7 +8,7 @@ The student manually enters existing attendance data, including the total number
 
 The main goal of this project is to learn full-stack development, teamwork, module integration, Git/GitHub collaboration, and software project coordination.
 
-2. Project Goals
+## 2. Project Goals
 
 - Build a functional attendance analysis application.
 - Learn how frontend, backend, database, and AI modules communicate.
@@ -16,11 +16,11 @@ The main goal of this project is to learn full-stack development, teamwork, modu
 - Maintain consistent documentation and code structure.
 - Make the project easy for every team member to understand and run.
 
-3. High-Level Architecture
+## 3. High-Level Architecture
 
 The application consists of four main components.
 
-A. Frontend
+### A. Frontend
 
 Responsibility: User interface and user interactions.
 
@@ -33,7 +33,7 @@ The frontend will:
 - Request data from the backend using HTTP APIs.
 - Display loading indicators and error messages.
 
-B. Backend
+### B. Backend
 
 Responsibility: Business logic, validation, API handling, and database communication.
 
@@ -47,7 +47,7 @@ The backend will:
 - Coordinate requests to the AI module.
 - Handle errors and return consistent API responses.
 
-C. Database
+### C. Database
 
 Technology: MySQL.
 
@@ -63,7 +63,7 @@ The initial "subjects" table will contain:
 
 The database structure will be defined in "database/init.sql", allowing each team member to create the same local schema.
 
-D. AI Module
+### D. AI Module
 
 Proposed technology: Python. FastAPI may be used if we decide to expose the AI module through an HTTP API.
 
@@ -76,7 +76,7 @@ The AI module will:
 
 For Version 1, we may begin with rule-based analysis. A machine learning model or external AI service is optional and will only be added if it supports our learning objectives.
 
-4. Data Flow
+## 4. Data Flow
 
 The expected data flow is:
 
@@ -90,7 +90,7 @@ The expected data flow is:
 8. The backend sends the result to the frontend.
 9. The frontend displays the updated attendance information.
 
-5. Initial Technology Stack
+## 5. Initial Technology Stack
 
 - Frontend: HTML, CSS, JavaScript.
 - Backend: Node.js and Express.js.
@@ -101,7 +101,7 @@ The expected data flow is:
 
 The exact libraries and versions will be documented when finalized by the team.
 
-6. Initial Folder Structure
+## 6. Initial Folder Structure
 ```
 attendance-analyzer/
 ├── docs/
@@ -119,8 +119,7 @@ attendance-analyzer/
 ```
 
 This is the planned structure. Each module's internal files will be added as development begins.
-
-7. Team Responsibilities
+## 7. Team Responsibilities
 
 Frontend Developer
 
