@@ -1,6 +1,6 @@
-Git Commands Guide — Attendance Analyzer
+# Git Commands Guide — Attendance Analyzer
 
-1. Introduction
+## 1. Introduction
 
 Git is a version control system that helps team members track code changes, work on separate branches, and collaborate on the same project.
 
@@ -15,43 +15,43 @@ Why We Use Git
 - Recover previous versions of files.
 - Reduce conflicts when multiple people work on the project.
 
-2. Git Setup
+## 2. Git Setup
 
-2.1 Check Git Installation
+### 2.1 Check Git Installation
 
-git --version
+`git --version`
 
 This command displays the installed Git version.
 
-2.2 Configure Your Identity
+### 2.2 Configure Your Identity
 
 Run these commands once on your computer:
-
+```cmd
 git config --global user.name "Your Name"
 git config --global user.email "your-email@example.com"
-
+```
 Example:
-
+```cmd
 git config --global user.name "name"
 git config --global user.email "name@example.com"
-
+```
 Use the email associated with your GitHub account if appropriate.
 
-2.3 Check Your Configuration
+### 2.3 Check Your Configuration
 
-git config --global --list
+`git config --global --list`
 
 This displays your global Git configuration.
 
-3. Clone the Repository
+## 3. Clone the Repository
 
 Command
 
-git clone <repository-url>
+`git clone <repository-url>`
 
 Example
 
-git clone https://github.com/username/attendance-analyzer.git
+`git clone https://github.com/username/attendance-analyzer.git`
 
 Purpose
 
@@ -61,15 +61,15 @@ Purpose
 
 After cloning, enter the project directory:
 
-cd attendance-analyzer
+` cd attendance-analyzer `
 
-Important: Replace the example URL with the actual GitHub repository URL.
+**Important**: Replace the example URL with the actual GitHub repository URL.
 
-4. Check Repository Status
+## 4. Check Repository Status
 
 Command
 
-git status
+`git status`
 
 Purpose
 
@@ -80,11 +80,11 @@ Purpose
 
 Best practice: Run "git status" before committing or switching branches.
 
-5. Download the Latest Changes
+## 5. Download the Latest Changes
 
-5.1 Pull Changes
+### 5.1 Pull Changes
 
-git pull origin main
+`git pull origin main`
 
 Purpose
 
@@ -98,9 +98,9 @@ Important Notes
 - Resolve merge conflicts if Git reports them.
 - Do not assume "git pull" is safe to run blindly while you have conflicting local changes.
 
-5.2 Fetch Changes Without Integrating Them
-
-git fetch origin
+### 5.2 Fetch Changes Without Integrating Them
+`
+git fetch origin`
 
 This downloads information about remote changes but does not merge those changes into your current branch.
 
@@ -109,82 +109,83 @@ Difference Between Fetch and Pull
 - "git fetch" downloads remote updates without integrating them.
 - "git pull" fetches updates and integrates them into the current branch.
 
-6. Create and Switch Branches
+## 6. Create and Switch Branches
 
 Branches allow team members to work on different features without directly changing the shared "main" branch.
 
-6.1 View Local Branches
+### 6.1 View Local Branches
 
-git branch
+`git branch`
 
-6.2 View Local and Remote Branches
+### 6.2 View Local and Remote Branches
 
-git branch -a
+`git branch -a`
 
-6.3 Create a New Branch
+### 6.3 Create a New Branch
 
-git branch feature-name
+`git branch feature-name`
 
 This creates a branch but does not switch to it.
 
-6.4 Switch to an Existing Branch
+### 6.4 Switch to an Existing Branch
 
-git switch feature-name
+`git switch feature-name`
 
-6.5 Create and Switch to a New Branch
+###  6.5 Create and Switch to a New Branch
 
-git switch -c feature-name
+`git switch -c feature-name`
 
 Examples for Attendance Analyzer
 
 Frontend developer:
 
-git switch -c feature/frontend-dashboard
+`git switch -c feature/frontend-dashboard`
 
 Backend developer:
 
-git switch -c feature/backend-api
+`git switch -c feature/backend-api`
 
 AI developer:
 
-git switch -c feature/ai-insights
+`git switch -c feature/ai-insights`
 
 Team rule: Each member should normally implement their assigned feature on a separate branch.
 
-7. Stage Changes
+## 7. Stage Changes
 
 Staging means selecting which changes will be included in the next commit.
 
-7.1 Stage a Specific File
+### 7.1 Stage a Specific File
 
-git add docs/git-commands.md
+`git add docs/git-commands.md`
 
-7.2 Stage Multiple Files
+### 7.2 Stage Multiple Files
 
-git add frontend/index.html backend/server.js
+`git add frontend/index.html backend/server.js`
 
-7.3 Stage All Changes in the Current Directory
+### 7.3 Stage All Changes in the Current Directory
 
-git add .
+`git add .`
 
 This stages changes under the current directory, including new files, modifications, and deletions Git detects.
 
 Best practice: Use "git status" after staging to verify what will be committed.
 
-8. Commit Changes
+## 8. Commit Changes
 
 A commit records a snapshot of your staged changes.
 
 Command
 
-git commit -m "Your commit message"
+`git commit -m "Your commit message"`
 
 Examples
-
+```cmd
 git commit -m "Add attendance dashboard layout"
 
 git commit -m "Implement subject API endpoints"
 
 git commit -m "Add Git commands documentation"
+```
 
 Good Commit Message Practices
