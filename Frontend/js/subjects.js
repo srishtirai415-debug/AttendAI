@@ -129,3 +129,4 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#cancel-btn").addEventListener("click", resetForm);
   loadSubjects();
 });
+ 

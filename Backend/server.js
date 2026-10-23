@@ -22,7 +22,7 @@ db.connect((err)=>{
     console.log("MySQL connection successfully");
 });
 // subject routes
-app.use("/api/subject",subjectRoute);
+app.use("/api/subjects",subjectRoute);
 
 // dashboard routes
 app.use("/api/dashboard",dashboardRoute);

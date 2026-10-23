@@ -9,12 +9,12 @@ routes.get("/",getAllSubjects);
 routes.get("/:id",getOneSubject);
 
 // create new subject
-routes.post("/create",createSubject);
+routes.post("/",createSubject);
 
 // update subject
-routes.put("/:id/update",updateSubject);
+routes.put("/:id",updateSubject);
 
 // delete subject
-routes.delete("/:id/delete",deleteSubject);
+routes.delete("/:id/",deleteSubject);
 
 module.exports=routes;

@@ -127,11 +127,11 @@ async function calculateTarget({ classes_held, classes_attended, target_percenta
 
 // NOTE: the request body for what-if is NOT defined in the contract yet.
 // Check ../AI/README.md and adjust the field names below if they differ.
-async function whatIf({ classes_held, classes_attended, future_attended, future_missed }) {
+async function whatIf({ classes_held, classes_attended, classes_to_attend, classes_to_miss }) {
   return unwrap(
     await request("/api/ai/what-if", {
       method: "POST",
-      body: JSON.stringify({ classes_held, classes_attended, future_attended, future_missed }),
+      body: JSON.stringify({ classes_held, classes_attended, classes_to_attend, classes_to_miss }),
     })
   );
 }

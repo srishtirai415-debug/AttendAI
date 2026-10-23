@@ -86,12 +86,14 @@ function wireWhatIf() {
     out.replaceChildren();
 
     const { held, attended } = readCounts(form);
-    const futureAttended = form.elements.future_attended.value || "0";
-    const futureMissed = form.elements.future_missed.value || "0";
+    const classes_to_attend = form.elements.future_attended.value || "0";
+    const classes_to_miss = form.elements.future_missed.value || "0";
+    console.log("future attended : "+classes_to_attend +"future missed" +classes_to_miss);
     let problem = checkCounts(held, attended);
+    console.log("Problem "+problem);
     if (!problem) {
-      const fa = Number(futureAttended);
-      const fm = Number(futureMissed);
+      const fa = Number(classes_to_attend);
+      const fm = Number(classes_to_miss);
       if (!Number.isInteger(fa) || !Number.isInteger(fm) || fa < 0 || fm < 0) {
         problem = "Future classes must be non-negative whole numbers.";
       }
@@ -104,10 +106,11 @@ function wireWhatIf() {
         whatIf({
           classes_held: Number(held),
           classes_attended: Number(attended),
-          future_attended: Number(futureAttended),
-          future_missed: Number(futureMissed),
+          classes_to_attend: Number(classes_to_attend),
+          classes_to_miss: Number(classes_to_miss),
         })
       );
+      console.log(result);
       renderResult(out, result);
     } catch (error) {
       err.textContent = error.message;
