@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tools · Attendance Analyzer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">📊 Attendance Analyzer</a>
+      <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="subjects.html">Subjects</a>
+        <a href="tools.html" class="active">Tools</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Attendance tools</h1>
+    <p class="muted">Pick a subject to prefill the numbers, or type your own.</p>
+
+    <div class="two-col">
+      <!-- Target calculator: POST /api/ai/calculator -->
+      <section class="panel">
+        <h2>Target calculator</h2>
+        <p class="muted">How many classes in a row must you attend to reach a target?</p>
+        <form id="calc-form" novalidate>
+          <div class="field">
+            <label for="calc-subject">Subject (optional)</label>
+            <select id="calc-subject" class="subject-select"><option value="">— Enter manually —</option></select>
+          </div>
+          <div class="form-grid" style="margin-top:14px">
+            <div class="field">
+              <label for="calc-held">Classes held</label>
+              <input id="calc-held" name="classes_held" type="number" min="0" step="1">
+            </div>
+            <div class="field">
+              <label for="calc-attended">Classes attended</label>
+              <input id="calc-attended" name="classes_attended" type="number" min="0" step="1">
+            </div>
+            <div class="field">
+              <label for="calc-target">Target %</label>
+              <input id="calc-target" name="target_percentage" type="number" min="1" max="100" step="any" value="75">
+            </div>
+          </div>
+          <div id="calc-error" class="form-error" role="alert"></div>
+          <button id="calc-btn" class="btn primary" type="submit">Calculate</button>
+        </form>
+        <div id="calc-result"></div>
+      </section>
+
+      <!-- What-if: POST /api/ai/what-if -->
+      <section class="panel">
+        <h2>What-if projection</h2>
+        <p class="muted">See your attendance after future attended or missed classes.</p>
+        <form id="whatif-form" novalidate>
+          <div class="field">
+            <label for="whatif-subject">Subject (optional)</label>
+            <select id="whatif-subject" class="subject-select"><option value="">— Enter manually —</option></select>
+          </div>
+          <div class="form-grid" style="margin-top:14px">
+            <div class="field">
+              <label for="whatif-held">Classes held</label>
+              <input id="whatif-held" name="classes_held" type="number" min="0" step="1">
+            </div>
+            <div class="field">
+              <label for="whatif-attended">Classes attended</label>
+              <input id="whatif-attended" name="classes_attended" type="number" min="0" step="1">
+            </div>
+            <div class="field">
+              <label for="whatif-fa">Future classes attended</label>
+              <input id="whatif-fa" name="future_attended" type="number" min="0" step="1" value="0">
+            </div>
+            <div class="field">
+              <label for="whatif-fm">Future classes missed</label>
+              <input id="whatif-fm" name="future_missed" type="number" min="0" step="1" value="0">
+            </div>
+          </div>
+          <div id="whatif-error" class="form-error" role="alert"></div>
+          <button id="whatif-btn" class="btn primary" type="submit">Project</button>
+        </form>
+        <div id="whatif-result"></div>
+      </section>
+    </div>
+  </main>
+
+  <div id="toasts"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/tools.js"></script>
+</body>
+</html>

@@ -1,13 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · Attendance Analyzer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">📊 Attendance Analyzer</a>
+      <nav>
+        <a href="index.html" class="active">Dashboard</a>
+        <a href="subjects.html">Subjects</a>
+        <a href="tools.html">Tools</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Dashboard</h1>
+
+    <div id="alert-banner"></div>
+    <div id="error-box"></div>
+    <div id="loader" class="loader">Loading dashboard…</div>
+
+    <div id="dashboard-content" hidden>
+      <section id="summary-cards" class="cards"></section>
+
+      <section class="panel">
+        <h2>Attendance by subject</h2>
+        <div class="chart-wrap"><canvas id="chart"></canvas></div>
+      </section>
+
+      <section class="panel">
+        <h2>Subjects</h2>
+        <div id="subject-grid" class="grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Insights</h2>
+          <button id="refresh-insights" class="btn small" type="button">Refresh</button>
+        </div>
+        <div id="insights"></div>
+      </section>
+    </div>
+  </main>
+
+  <div id="toasts"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
 </html>

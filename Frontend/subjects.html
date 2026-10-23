@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subjects · Attendance Analyzer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">📊 Attendance Analyzer</a>
+      <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="subjects.html" class="active">Subjects</a>
+        <a href="tools.html">Tools</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Subjects</h1>
+
+    <section class="panel">
+      <h2 id="form-title">Add subject</h2>
+      <form id="subject-form" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Subject name</label>
+            <input id="name" name="name" type="text" maxlength="100" placeholder="e.g. DBMS" required>
+          </div>
+          <div class="field">
+            <label for="classes_held">Classes held</label>
+            <input id="classes_held" name="classes_held" type="number" min="0" step="1" required>
+          </div>
+          <div class="field">
+            <label for="classes_attended">Classes attended</label>
+            <input id="classes_attended" name="classes_attended" type="number" min="0" step="1" required>
+          </div>
+        </div>
+        <div id="form-error" class="form-error" role="alert"></div>
+        <div class="form-actions">
+          <button id="submit-btn" class="btn primary" type="submit">Add subject</button>
+          <button id="cancel-btn" class="btn" type="button" hidden>Cancel edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Your subjects</h2>
+      <div id="error-box"></div>
+      <div id="loader" class="loader">Loading subjects…</div>
+
+      <div id="table-wrap" class="table-wrap" hidden>
+        <table id="subjects-table">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Held</th>
+              <th>Attended</th>
+              <th>Attendance</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="subjects-body"></tbody>
+        </table>
+        <div id="empty-state" class="empty" hidden>No subjects yet. Add your first one above.</div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toasts"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/subjects.js"></script>
+</body>
+</html>
